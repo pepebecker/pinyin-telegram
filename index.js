@@ -11,10 +11,7 @@ bot.command('start', (ctx) => {
 	ctx.reply('nǐ hǎo')
 })
 
-let expectingCharacter = false
-
 const respondWithCharacters = (text, ctx) => {
-	text = text.replace('/h ', '')
 	findHanzi(text).then((data) => {
 		let response = ''
 
@@ -35,26 +32,31 @@ const respondWithCharacters = (text, ctx) => {
 	})
 }
 
+const respondWithPinyin = (text, ctx) => {
+	convert(text, {keepSpaces: true}).then((data) => {
+		ctx.reply(data)
+	})
+}
+
 bot.command('h', (ctx) => {
 	let text = ctx.update.message.text
-	if (text === '/h') {
-		ctx.reply('Please provide some information about the character')
-		expectingCharacter = true
-	} else {
+	if (text !== '/h') {
+		text = text.replace('/h ', '')
 		respondWithCharacters(text, ctx)
+	}
+})
+
+bot.command('p', (ctx) => {
+	let text = ctx.update.message.text
+	if (text !== '/p') {
+		text = text.replace('/p ', '')
+		respondWithPinyin(text, ctx)
 	}
 })
 
 bot.on('text', (ctx) => {
 	const text = ctx.update.message.text
-	if (expectingCharacter) {
-		respondWithCharacters(text, ctx)
-		expectingCharacter = false
-	} else {
-		convert(text, {keepSpaces: true}).then((data) => {
-			ctx.reply(data)
-		})
-	}
+	respondWithPinyin(text, ctx)
 })
 
 bot.catch((err) => {
