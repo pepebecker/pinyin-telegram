@@ -8,7 +8,7 @@ const BOT_TOKEN = '368670088:AAE0Uepq5Ik3TaPKEEEDGcHZsKQEb6CW4A4'
 const bot = new Telegraf(BOT_TOKEN)
 
 bot.command('start', (ctx) => {
-	ctx.reply(`Started`)
+	ctx.reply('nǐ hǎo')
 })
 
 let expectingCharacter = false
