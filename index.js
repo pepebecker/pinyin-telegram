@@ -1,4 +1,5 @@
 const Telegraf = require('telegraf')
+const express = require('express')
 const convert = require('pinyin-converter')
 const findHanzi = require('find-hanzi')
 
@@ -63,5 +64,25 @@ bot.catch((err) => {
 bot.startPolling()
 
 setInterval(() => {
-    http.get('https://pinyin-bot.herokuapp.com')
+    http.get('http://pinyin-bot.herokuapp.com')
 }, 300000)
+
+const app = express()
+
+app.get('/', function (req, res) {
+	
+	const h1Style = 'margin: 50px auto;'
+	const h1 = `<h1 style="${h1Style}">PinyinBot is Online</h1>`
+
+	const a = `<a href="//t.me/pinyin_bot">Add to Telegram</a>`
+
+	const bodyStyle = 'font-family: sans-serif; text-align: center;'
+	const body = `<body style="${bodyStyle}">${h1 + a}</body>`
+
+	const head = `<head><title>PinyinBot</title></head>`
+	
+	res.send(head + body)
+})
+
+const port = Number(process.env.PORT || 5000)
+app.listen(port, () => console.log("Listening on " + port))
