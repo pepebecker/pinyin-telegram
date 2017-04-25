@@ -2,7 +2,7 @@ const Telegraf = require('telegraf')
 const convert = require('pinyin-converter')
 const findHanzi = require('find-hanzi')
 
-const BOT_TOKEN = '368670088:AAFMqOm5ekzjpiFgqNnEt1GqbqWlGphhG7E'
+const BOT_TOKEN = '368670088:AAE0Uepq5Ik3TaPKEEEDGcHZsKQEb6CW4A4'
 
 const bot = new Telegraf(BOT_TOKEN)
 
@@ -61,3 +61,7 @@ bot.catch((err) => {
 })
 
 bot.startPolling()
+
+setInterval(() => {
+    http.get('https://pinyin-bot.herokuapp.com')
+}, 300000)
