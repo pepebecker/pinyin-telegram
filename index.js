@@ -1,9 +1,10 @@
 const Telegraf = require('telegraf')
+const pinyinOrHanzi = require('pinyin-or-hanzi')
 const convert = require('pinyin-converter')
 const findHanzi = require('find-hanzi')
 const split = require('pinyin-split')
 
-const BOT_TOKEN = '368670088:AAE0Uepq5Ik3TaPKEEEDGcHZsKQEb6CW4A4'
+const BOT_TOKEN = '368670088:AAEam0EwzGWyFXEADMw8mhtW_tAUvZ29XSQ'
 
 const bot = new Telegraf(BOT_TOKEN)
 
@@ -12,8 +13,46 @@ const PINYIN = 2
 const SPLIT  = 3
 let status = 0
 
+const logRecvMessage = (text) => {
+	console.log('Received message:', text)
+}
+
+const logRecvCommand = (text) => {
+	console.log('Received command:', text)
+}
+
+const logSendMessage = (text) => {
+	console.log('Send message:', text)
+}
+
+const logStatus = () => {
+	let statusText = ''
+
+	switch(status) {
+	case HANZI:
+		statusText = 'Hanzi'
+		break
+	case PINYIN:
+		statusText = 'Pinyin'
+		break
+	case SPLIT:
+		statusText = 'Split'
+		break
+	default:
+		statusText = 'Normal'
+		break
+	}
+
+	console.log('Currrent Status:', status, '-', statusText)
+}
+
+const send = (ctx, text) => {
+	logSendMessage(text)
+	ctx.reply(text)
+}
+
 bot.command('start', (ctx) => {
-	ctx.reply('nǐ hǎo')
+	send(ctx, 'nǐ hǎo')
 })
 
 const sendHanzi = (text, ctx) => {
@@ -31,28 +70,29 @@ const sendHanzi = (text, ctx) => {
 		}
 
 		if (response.replace(/\n\ /g, '') != '') {
-			ctx.reply(response)
+			send(ctx, response)
 		}
 	}).catch((error) => {
-		ctx.reply(error)
+		send(ctx, error)
 	})
 }
 
 const sendPinyin = (text, ctx) => {
 	status = 0
 	convert(text, {keepSpaces: true}).then((data) => {
-		ctx.reply(data)
+		send(ctx, data)
 	})
 }
 
 const sendSplitted = (text, ctx) => {
 	status = 0
 	split(text).then((data) => {
-		ctx.reply(data.join(' '))
+		send(ctx, data.join(' '))
 	})
 }
 
 const onHanzi = (ctx) => {
+	logRecvCommand('hanzi')
 	let text = ctx.update.message.text
 	if (text === '/h' || text === '/hanzi') {
 		status = HANZI
@@ -61,9 +101,11 @@ const onHanzi = (ctx) => {
 		text = text.replace('/h ', '')
 		sendHanzi(text, ctx)
 	}
+	logStatus()
 }
 
 const onPinyin = (ctx) => {
+	logRecvCommand('pinyin')
 	let text = ctx.update.message.text
 	if (text === '/p' || text === '/pinyin') {
 		status = PINYIN
@@ -72,9 +114,11 @@ const onPinyin = (ctx) => {
 		text = text.replace('/p ', '')
 		sendPinyin(text, ctx)
 	}
+	logStatus()
 }
 
 const onSplit = (ctx) => {
+	logRecvCommand('split')
 	let text = ctx.update.message.text
 	if (text === '/s' || text === '/split') {
 		status = SPLIT
@@ -83,6 +127,7 @@ const onSplit = (ctx) => {
 		text = text.replace('/s ', '')
 		sendSplitted(text, ctx)
 	}
+	logStatus()
 }
 
 bot.command('h', (ctx) => onHanzi(ctx))
@@ -96,6 +141,7 @@ bot.command('split', (ctx) => onSplit(ctx))
 
 bot.on('text', (ctx) => {
 	const text = ctx.update.message.text
+	logRecvMessage(text)
 
 	if (/^\/\w+/.test(text)) return
 
@@ -110,13 +156,20 @@ bot.on('text', (ctx) => {
 		sendSplitted(text, ctx)
 		break
 	default:
-		sendPinyin(text, ctx)
+		pinyinOrHanzi(text).then((type) => {
+			if (type > 0) {
+				sendPinyin(text, ctx)
+			}
+		})
 		break
 	}
+
+	logStatus()
 })
 
 bot.catch((err) => {
-  console.log('Ooops', err)
+	logStatus()
+	console.log('Ooops', err)
 })
 
 bot.startPolling()

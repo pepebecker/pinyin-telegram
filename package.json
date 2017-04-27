@@ -21,6 +21,7 @@
     "express": "^4.15.2",
     "find-hanzi": "pepebecker/find-hanzi",
     "pinyin-converter": "pepebecker/pinyin-converter",
+    "pinyin-or-hanzi": "pepebecker/pinyin-or-hanzi",
     "telegraf": "^3.6.7"
   },
   "devDependencies": {
