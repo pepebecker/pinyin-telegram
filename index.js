@@ -3,6 +3,7 @@ const pinyinOrHanzi = require('pinyin-or-hanzi')
 const convert = require('pinyin-converter')
 const findHanzi = require('find-hanzi')
 const split = require('pinyin-split')
+const so = require('so')
 
 const BOT_TOKEN = '368670088:AAEam0EwzGWyFXEADMw8mhtW_tAUvZ29XSQ'
 
@@ -22,7 +23,7 @@ const logRecvCommand = (text) => {
 }
 
 const logSendMessage = (text) => {
-	console.log('Send message:', text)
+	console.log('Send message:\n', text)
 }
 
 const logStatus = () => {
@@ -55,22 +56,43 @@ bot.command('start', (ctx) => {
 	send(ctx, 'nǐ hǎo')
 })
 
+const createDescription = (data) => {
+	let content = ''
+	for (let item of data) {
+		if (item.hanzi) content += `Character: ${item.hanzi}\n`
+		if (item.pinyin) content += `Pinyin: ${item.pinyin}\n`
+		if (item.cangjie) content += `Cangjie: ${item.cangjie} : ${item.cangjie2}\n`
+		if (item.strokes) content += `Strokes: ${item.strokes}\n`
+		if (item.definition) content += `Definition: ${item.definition}\n`
+		content += '\n'
+	}
+	return content
+}
+
 const sendHanzi = (text, ctx) => {
 	status = 0
-	findHanzi(text).then((data) => {
-		let response = ''
+	pinyinOrHanzi(text).then((type) => {
+		if (type == 1) {
+			so(function*() {
+				let response = ''
+				const characters = text.split('')
+				for (char of characters) {
+					yield findHanzi(char).then((data) => {
+						response += createDescription(data)
+					})
+				}
+				if (response.replace(/\n\ /g, '') != '') {
+					send(ctx, response)
+				}
+			})()
+		} else {
+			findHanzi(text).then((data) => {
+				const response = createDescription(data)
 
-		for (let item of data) {
-			if (item.hanzi) response += 'Character: ' + item.hanzi + '\n'
-			if (item.pinyin) response += 'Pinyin: ' + item.pinyin + '\n'
-			if (item.cangjie) response += 'Cangjie: ' + item.cangjie
-			if (item.kangjie) response += ' | ' + item.kangjie + '\n'
-			if (item.definition) response += 'Definition: ' + item.definition + '\n'
-			response += '\n'
-		}
-
-		if (response.replace(/\n\ /g, '') != '') {
-			send(ctx, response)
+				if (response.replace(/\n\ /g, '') != '') {
+					send(ctx, response)
+				}
+			})
 		}
 	}).catch((error) => {
 		send(ctx, error)
@@ -79,15 +101,27 @@ const sendHanzi = (text, ctx) => {
 
 const sendPinyin = (text, ctx) => {
 	status = 0
-	convert(text, {keepSpaces: true}).then((data) => {
-		send(ctx, data)
+	pinyinOrHanzi(text).then((type) => {
+		if (type > 0) {
+			convert(text, {keepSpaces: true}).then((data) => {
+				send(ctx, data)
+			})
+		}
+	}).catch((error) => {
+		send(ctx, error)
 	})
 }
 
 const sendSplitted = (text, ctx) => {
 	status = 0
-	split(text).then((data) => {
-		send(ctx, data.join(' '))
+	pinyinOrHanzi(text).then((type) => {
+		if (type !== 1) {
+			split(text).then((data) => {
+				send(ctx, data.join(' '))
+			})
+		}
+	}).catch((error) => {
+		send(ctx, error)
 	})
 }
 
@@ -156,11 +190,7 @@ bot.on('text', (ctx) => {
 		sendSplitted(text, ctx)
 		break
 	default:
-		pinyinOrHanzi(text).then((type) => {
-			if (type > 0) {
-				sendPinyin(text, ctx)
-			}
-		})
+		sendPinyin(text, ctx)
 		break
 	}
 

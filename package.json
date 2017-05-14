@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "watch": "nodemon index.js",
-    "test": "node index.js"
+    "watch": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +22,8 @@
     "find-hanzi": "pepebecker/find-hanzi",
     "pinyin-converter": "pepebecker/pinyin-converter",
     "pinyin-or-hanzi": "pepebecker/pinyin-or-hanzi",
+    "pinyin-split": "pepebecker/pinyin-split",
+    "so": "^1.0.1",
     "telegraf": "^3.6.7"
   },
   "devDependencies": {
