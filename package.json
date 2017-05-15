@@ -19,10 +19,10 @@
   "homepage": "https://github.com/pepebecker/pinyin-bot#readme",
   "dependencies": {
     "express": "^4.15.2",
-    "find-hanzi": "pepebecker/find-hanzi",
-    "pinyin-converter": "pepebecker/pinyin-converter",
-    "pinyin-or-hanzi": "pepebecker/pinyin-or-hanzi",
-    "pinyin-split": "pepebecker/pinyin-split",
+    "find-hanzi": "^1.0.2",
+    "pinyin-convert": "^1.0.2",
+    "pinyin-or-hanzi": "^1.0.2",
+    "pinyin-split": "^1.0.2",
     "so": "^1.0.1",
     "telegraf": "^3.6.7"
   },
