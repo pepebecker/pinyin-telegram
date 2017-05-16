@@ -1,8 +1,9 @@
 {
   "name": "pinyin-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Telegram bot to convert between Pinyin with tone marks and Pinyin with tone numbers.",
   "main": "index.js",
+  "files": [],
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon index.js"
@@ -11,18 +12,26 @@
     "type": "git",
     "url": "https://github.com/pepebecker/pinyin-bot"
   },
+  "keywords": [
+    "telegram",
+    "bot",
+    "hanzi",
+    "pinyin",
+    "cangjie",
+    "chinese",
+    "mandarin"
+  ],
   "author": "Pepe Becker <mail@pepebecker.com> (http://pepebecker.com)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pepebecker/pinyin-bot/issues"
   },
   "homepage": "https://github.com/pepebecker/pinyin-bot#readme",
   "dependencies": {
-    "express": "^4.15.2",
-    "find-hanzi": "^1.0.2",
-    "pinyin-convert": "^1.0.2",
-    "pinyin-or-hanzi": "^1.0.2",
-    "pinyin-split": "^1.0.2",
+    "find-hanzi": "*",
+    "pinyin-convert": "*",
+    "pinyin-or-hanzi": "*",
+    "pinyin-split": "*",
     "so": "^1.0.1",
     "telegraf": "^3.6.7"
   },

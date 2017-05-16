@@ -1,6 +1,6 @@
 const Telegraf = require('telegraf')
 const pinyinOrHanzi = require('pinyin-or-hanzi')
-const convert = require('pinyin-converter')
+const convert = require('pinyin-convert')
 const findHanzi = require('find-hanzi')
 const split = require('pinyin-split')
 const so = require('so')
