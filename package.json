@@ -28,11 +28,7 @@
   },
   "homepage": "https://github.com/pepebecker/pinyin-bot#readme",
   "dependencies": {
-    "find-hanzi": "^1.0.6",
-    "pinyin-convert": "^1.0.3",
-    "pinyin-or-hanzi": "^1.0.3",
-    "pinyin-split": "^1.0.3",
-    "so": "^1.0.1",
+    "pinyin-bot-core": "pepebecker/pinyin-bot-core",
     "telegraf": "^3.7.1"
   },
   "devDependencies": {
