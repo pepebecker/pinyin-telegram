@@ -1,5 +1,5 @@
 {
-  "name": "pinyin-bot",
+  "name": "pinyin-telegram",
   "version": "1.0.0",
   "description": "A Telegram bot to convert between Pinyin with tone marks and Pinyin with tone numbers.",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pepebecker/pinyin-bot"
+    "url": "https://github.com/pepebecker/pinyin-telegram"
   },
   "keywords": [
     "telegram",
@@ -24,9 +24,9 @@
   "author": "Pepe Becker <mail@pepebecker.com> (http://pepebecker.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pepebecker/pinyin-bot/issues"
+    "url": "https://github.com/pepebecker/pinyin-telegram/issues"
   },
-  "homepage": "https://github.com/pepebecker/pinyin-bot#readme",
+  "homepage": "https://github.com/pepebecker/pinyin-telegram#readme",
   "dependencies": {
     "pinyin-bot-core": "pepebecker/pinyin-bot-core",
     "telegraf": "^3.7.1"
