@@ -3,11 +3,9 @@
 const Telegraf = require('telegraf')
 const botCore = require('pinyin-bot-core')
 
-const BOT_TOKEN = '368670088:AAEam0EwzGWyFXEADMw8mhtW_tAUvZ29XSQ'
+const BOT_TOKEN = 'SECRET'
 
 const bot = new Telegraf(BOT_TOKEN)
-
-botCore.setPlatform('telegram')
 
 bot.command('start', (ctx) => {
 	const text = 'nǐ hǎo'
@@ -17,7 +15,8 @@ bot.command('start', (ctx) => {
 
 bot.on('text', (ctx) => {
 	const text = ctx.update.message.text
-	botCore.processMessage(text, ctx)
+	botCore.processMessage(text, ctx.reply)
+	console.log('Sent message:', text)
 })
 
 bot.catch((err) => {
