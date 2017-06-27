@@ -5,7 +5,7 @@
 [![MIT-licensed](https://img.shields.io/github/license/pepebecker/pinyin-telegram.svg)](https://opensource.org/licenses/MIT)
 [![chat on gitter](https://badges.gitter.im/pepebecker.svg)](https://gitter.im/pepebecker)
 
-## [Add PinyinBot on Telegram](http://t.me/pinyinbot)
+## [Add PinyinBot on Telegram](http://t.me/pinyin_bot)
 
 ## Usage
 
