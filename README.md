@@ -14,6 +14,7 @@ Use the link above to add the PinyinBot to your Telegram chats and send him some
 ## Related
 
 - [`pinyin-utils`](https://github.com/pepebecker/pinyin-utils)
+- [`pinyin-split`](https://github.com/pepebecker/pinyin-split)
 - [`find-hanzi`](https://github.com/pepebecker/find-hanzi)
 - [`hsk-words`](https://github.com/pepebecker/hsk-words)
 - [`pinyin-or-hanzi`](https://github.com/pepebecker/pinyin-or-hanzi)
