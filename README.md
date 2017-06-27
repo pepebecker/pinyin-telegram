@@ -13,8 +13,16 @@ Use the link above to add the PinyinBot to your Telegram chats and send him some
 
 ## Related
 
-- [`pinyin-messenger`](https://github.com/pepebecker/pinyin-messenger)
+- [`pinyin-utils`](https://github.com/pepebecker/pinyin-utils)
+- [`find-hanzi`](https://github.com/pepebecker/find-hanzi)
+- [`hsk-words`](https://github.com/pepebecker/hsk-words)
+- [`pinyin-or-hanzi`](https://github.com/pepebecker/pinyin-or-hanzi)
+- [`hanzi-to-pinyin`](https://github.com/pepebecker/hanzi-to-pinyin)
+- [`pinyin-convert`](https://github.com/pepebecker/pinyin-convert)
+- [`pinyin-rest`](https://github.com/pepebecker/pinyin-rest)
+- [`pinyin-api`](https://github.com/pepebecker/pinyin-api)
 - [`pinyin-bot-core`](https://github.com/pepebecker/pinyin-bot-core)
+- [`pinyin-messenger`](https://github.com/pepebecker/pinyin-messenger)
 
 ## Contributing
 
