@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pepebecker/pinyin-telegram"
+    "url": "https://github.com/pepebecker/pinyin-telegram.git"
   },
   "keywords": [
     "telegram",
@@ -29,7 +29,7 @@
   "homepage": "https://github.com/pepebecker/pinyin-telegram#readme",
   "dependencies": {
     "pinyin-bot-core": "pepebecker/pinyin-bot-core",
-    "telegraf": "^3.7.1"
+    "telegraf": "^3.7.4"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
