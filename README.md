@@ -1,5 +1,7 @@
 # Pinyin Telegram
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pepebecker/pinyin-telegram.svg)](https://greenkeeper.io/)
+
 [![dependency status](https://img.shields.io/david/pepebecker/pinyin-telegram.svg)](https://david-dm.org/pepebecker/pinyin-telegram)
 [![dev dependency status](https://img.shields.io/david/dev/pepebecker/pinyin-telegram.svg)](https://david-dm.org/pepebecker/pinyin-telegram#info=devDependencies)
 [![MIT-licensed](https://img.shields.io/github/license/pepebecker/pinyin-telegram.svg)](https://opensource.org/licenses/MIT)
