@@ -29,9 +29,9 @@
   "homepage": "https://github.com/pepebecker/pinyin-telegram#readme",
   "dependencies": {
     "pinyin-bot-core": "pepebecker/pinyin-bot-core",
-    "telegraf": "^3.7.4"
+    "telegraf": "^3.18.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.15.0"
   }
 }
