@@ -3,7 +3,7 @@
 const Telegraf = require('telegraf')
 const botCore = require('pinyin-bot-core')
 
-const BOT_TOKEN = 'SECRET'
+const BOT_TOKEN = 'TOKEN'
 
 const bot = new Telegraf(BOT_TOKEN)
 
