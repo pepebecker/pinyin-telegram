@@ -3,7 +3,7 @@
 const Telegraf = require('telegraf')
 const botCore = require('pinyin-bot-core')
 
-const BOT_TOKEN = 'TOKEN'
+const BOT_TOKEN = process.env.PINYIN_TELEGRAM_TOKEN
 
 const bot = new Telegraf(BOT_TOKEN)
 
