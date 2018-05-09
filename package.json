@@ -25,10 +25,11 @@
   },
   "scripts": {
     "start": "node index.js",
-    "watch": "nodemon index.js"
+    "watch": "nodemon index.js",
+    "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "dependencies": {
-    "pinyin-bot-core": "^1.4.0",
+    "pinyin-bot-core": "^1.5.0",
     "telegraf": "^3.21.0"
   },
   "devDependencies": {
