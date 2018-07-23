@@ -22,19 +22,19 @@ module.exports = {
    */
   deploy : {
     production : {
-      user : 'root',
+      user : 'pepe',
       host : 'celsian.pepebecker.com',
       ref  : 'origin/master',
       repo : 'https://github.com/pepebecker/pinyin-telegram.git',
-      path : '/root/apps/production/pinyin-telegram',
+      path : '/home/pepe/apps/production/pinyin-telegram',
       'post-deploy': source_profile + 'npm install && pm2 reload ecosystem.config.js --env production'
     },
     dev : {
-      user : 'root',
+      user : 'pepe',
       host : 'celsian.pepebecker.com',
       ref  : 'origin/master',
       repo : 'https://github.com/pepebecker/pinyin-telegram.git',
-      path : '/root/apps/development/pinyin-telegram',
+      path : '/home/pepe/apps/development/pinyin-telegram',
       'post-deploy': source_profile + 'npm install && pm2 reload ecosystem.config.js --env dev',
       env  : {
         NODE_ENV: 'dev'
