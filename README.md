@@ -9,7 +9,7 @@
 
 ## Usage
 
-Use the link above to add the PinyinBot to your Telegram chats and send him some Chinese text. He will reply with the same text in the phonic language called Pinyin. For example, if you send `我喜欢吃面条`, he would reply with `wǒ xǐ huān chī miàn tiáo`.
+Use the link above to add PinyinBot to your Telegram chats and send him some Chinese text. He will reply with the same text in the phonetic language called Pīnyīn (拼音). For example, if you send `我喜欢吃面条`, he would reply with `wǒ xǐhuan chī miàntiáo`.
 
 ## Related
 
