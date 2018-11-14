@@ -29,7 +29,7 @@
     "watch": "nodemon index.js"
   },
   "dependencies": {
-    "pinyin-bot-core": "^1.15.0",
+    "pinyin-bot-core": "^1.16.0",
     "telegraf": "^3.25.0"
   },
   "devDependencies": {
