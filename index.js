@@ -15,14 +15,14 @@ bot.command('start', ctx => {
 
 bot.on('text', ctx => {
 	const text = ctx.update.message.text
-	console.log('Received message:', text)
+	console.log('Received:', text)
 	botCore.processMessage(text)
 	.then(ctx.reply)
 	.catch(console.error)
 })
 
 bot.catch(err => {
-	console.error('Ooops', err)
+	console.error('Error:', err.message || err)
 })
 
 bot.startPolling()
