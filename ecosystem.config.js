@@ -17,7 +17,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'https://github.com/pepebecker/pinyin-telegram.git',
       path: '/home/pepe/apps/production/pinyin-telegram',
-      'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production'
+      'post-deploy': 'source ~/.profile && npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
 };
