@@ -12,8 +12,8 @@ module.exports = {
 
   deploy: {
     production: {
-      user: 'pepe',
-      host: 'celsian.pepebecker.com',
+      user: 'root',
+      host: 'celsian.pepe.asia',
       ref: 'origin/master',
       repo: 'https://github.com/pepebecker/pinyin-telegram.git',
       path: '/home/pepe/apps/production/pinyin-telegram',
