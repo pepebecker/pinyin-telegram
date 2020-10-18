@@ -2,7 +2,7 @@
 
 [![dependency status](https://img.shields.io/david/pepebecker/pinyin-telegram.svg)](https://david-dm.org/pepebecker/pinyin-telegram)
 [![dev dependency status](https://img.shields.io/david/dev/pepebecker/pinyin-telegram.svg)](https://david-dm.org/pepebecker/pinyin-telegram#info=devDependencies)
-[![MIT-licensed](https://img.shields.io/github/license/pepebecker/pinyin-telegram.svg)](https://opensource.org/licenses/MIT)
+[![ISC-licensed](https://img.shields.io/github/license/pepebecker/pinyin-telegram.svg)](https://choosealicense.com/licenses/isc/)
 [![chat on gitter](https://badges.gitter.im/pepebecker.svg)](https://gitter.im/pepebecker)
 
 ## [Add PinyinBot on Telegram](http://t.me/pinyin_bot)
